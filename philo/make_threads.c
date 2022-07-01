@@ -6,7 +6,7 @@
 /*   By: cthresh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:33:30 by cthresh           #+#    #+#             */
-/*   Updated: 2022/06/26 18:45:38 by cthresh          ###   ########.fr       */
+/*   Updated: 2022/06/29 22:13:29 by cthresh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	*philo_to_life(void *ph)
 		print_str(philo, philo->number, " is sleeping");
 		ft_sleep(philo->philo_data->t_sleep, make_time());
 		print_str(philo, philo->number, " is thinking");
-		usleep(100);
+		usleep(300);
 	}
 	return (0);
 }
@@ -67,7 +67,7 @@ int	ft_make_threads(t_data *data)
 	data->start_time = make_time();
 	while (i < data->philo_number)
 	{
-		data->philo[i].last_eating = make_time() - data->start_time;
+		data->philo[i].last_eating = 0;
 		pthread_create(&data->thr[data->philo_number], NULL,
 			philo_to_life, (void *)&data->philo[i]);
 		i++;

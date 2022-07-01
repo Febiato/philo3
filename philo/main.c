@@ -6,7 +6,7 @@
 /*   By: cthresh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:33:26 by cthresh           #+#    #+#             */
-/*   Updated: 2022/06/26 19:25:22 by cthresh          ###   ########.fr       */
+/*   Updated: 2022/06/26 21:06:53 by cthresh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ static int	init_data(t_data *data)
 
 static int	data_to_struct(int argc, char **argv, t_data *data)
 {
-	data->philo_number = (int)ft_atoi(argv[1]);
-	data->t_die = (int)ft_atoi(argv[2]);
-	data->t_eat = (int)ft_atoi(argv[3]);
-	data->t_sleep = (int)ft_atoi(argv[4]);
+	data->philo_number = (int)ft_atoi(argv[1], 0);
+	data->t_die = (int)ft_atoi(argv[2], 0);
+	data->t_eat = (int)ft_atoi(argv[3], 0);
+	data->t_sleep = (int)ft_atoi(argv[4], 0);
 	if (argc == 6)
-		data->num_of_eat = (int)ft_atoi(argv[5]);
+		data->num_of_eat = (int)ft_atoi(argv[5], 0);
 	if (data->philo_number == -2 || data->t_die == -2 || data->t_eat == -2
 		|| data->t_sleep == -2 || data->num_of_eat == -2
 		|| data->philo_number == 0 || data->num_of_eat == 0)

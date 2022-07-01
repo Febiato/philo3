@@ -6,7 +6,7 @@
 /*   By: cthresh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:33:39 by cthresh           #+#    #+#             */
-/*   Updated: 2022/06/26 19:20:20 by cthresh          ###   ########.fr       */
+/*   Updated: 2022/06/26 21:09:56 by cthresh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,13 @@ long long	make_time(void)
 	return (time);
 }
 
-long long	ft_atoi(const char *str)
+long long	ft_atoi(const char *str, long long i)
 {
 	long long	result;
-	long long	i;
 	long long	plus;
 
 	plus = 1;
 	result = 0;
-	i = 0;
 	while (str[i] == ' ')
 		i++;
 	if ((str[i] == '+' || str[i] == '-'))
@@ -52,7 +50,8 @@ long long	ft_atoi(const char *str)
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - 48);
-		if (result * plus > 2147483647 || result * plus < -2147483648)
+		if (result * plus > 2147483647 || result * plus < -2147483648
+			|| (str[i + 1] != '\0' && (str[i + 1] < '0' || str[i + 1] > '9')))
 			return (-2);
 		i++;
 	}
@@ -61,6 +60,7 @@ long long	ft_atoi(const char *str)
 
 void	ft_sleep(long long time, long long real_time)
 {
+	usleep(time / 10 * 9 + time / 10);
 	while (time > (make_time() - real_time))
-		usleep(10);
+		usleep(300);
 }

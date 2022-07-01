@@ -6,7 +6,7 @@
 /*   By: cthresh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:33:36 by cthresh           #+#    #+#             */
-/*   Updated: 2022/06/26 18:47:00 by cthresh          ###   ########.fr       */
+/*   Updated: 2022/06/26 21:04:41 by cthresh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int			ft_error_exit(char *str, t_data *data);
 
 /* utils */
 long long	make_time(void);
-long long	ft_atoi(const char *str);
+long long	ft_atoi(const char *str, long long i);
 void		print_str(t_philo *philo, int number, char *str);
 void		ft_sleep(long long time, long long real_time);
 
